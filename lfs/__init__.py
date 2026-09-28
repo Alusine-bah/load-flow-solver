@@ -17,12 +17,12 @@ License: MIT
 """
 
 from .models import (
-    Bus, Line, Generator, PowerSystem,
+    Bus, Line, Generator, Shunt, PowerSystem,
     SLACK, PV, PQ,
 )
 
 __version__ = "0.1.0"
 __all__ = [
-    "Bus", "Line", "Generator", "PowerSystem",
+    "Bus", "Line", "Generator", "Shunt", "PowerSystem",
     "SLACK", "PV", "PQ",
 ]
