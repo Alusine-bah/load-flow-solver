@@ -154,6 +154,7 @@ GS:  9.9e-2  →  4.8e-2  →  1.7e-2  →  4.1e-3  →  6.6e-4  →  ... (17 it
 
 Newton-Raphson has \*\*quadratic convergence\*\* — each iteration roughly squares the number of correct digits. Gauss-Seidel is linear. On large systems, the difference is decisive.
 
+![Convergence comparison](figures/convergence.png)
 
 
 \---
