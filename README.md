@@ -89,22 +89,17 @@ This is the part that matters. The solver isn't "it seems to work" — it reprod
 
 
 | Module | Verified against | Result |
-
 |---|---|---|
-
-| `per\_unit.py` | Saadat, \*Power System Analysis\*, §3.14 | Match to 4 decimals |
-
-| `ybus.py` | Stevenson, \*Elements of Power System Analysis\*, Ex. 7.1 | 12/12 matrix entries match |
-
-| `gauss\_seidel.py` | Stevenson 4-bus system | Converges in 17 iterations, `max\\|ΔV\\| = 9.5e-9` |
-
-| `newton\_raphson.py` | Same system, cross-checked vs GS | Converges in 8 iterations, agrees with GS to `1.3e-9` pu |
-
+| `per_unit.py` | Saadat, *Power System Analysis*, §3.14 | Match to 4 decimals |
+| `ybus.py` | Stevenson, *Elements of Power System Analysis*, Ex. 7.1 | 12/12 matrix entries match |
+| `gauss_seidel.py` | Stevenson 4-bus system | Converges in 17 iterations, `max\|ΔV\| = 9.5e-9` |
+| `newton_raphson.py` | Same 4-bus system, cross-checked vs GS | Converges in 8 iterations, agrees with GS to `1.3e-9` pu |
+| Both solvers | IEEE 9-bus (Anderson topology) | Agree to `9.9e-11` pu on a 9-bus, 3-generator network |
 
 
 \*\*Both solvers produce the same final answer\*\* — that's the strongest possible evidence the Jacobian is correct. If any sign or index were wrong in Newton-Raphson, the two methods would converge to different operating points.
 
-
+The 9-bus example uses the standard Anderson & Fouad topology and the Thapar University line data table. Several published versions of "IEEE 9-bus" exist with slightly different line impedances; the cross-check between Gauss-Seidel and Newton-Raphson confirms both solvers agree on the network as built, independent of which published variant is used as a comparison.
 
 \### Sample output
 
@@ -133,6 +128,9 @@ Bus    Name         Type      |V| (pu)   Angle (°)    P (pu)    Q (pu)
 Load bus voltages sag under load, the generator bus holds its setpoint, and the phases shift by a few degrees — the physics a power engineer expects.
 
 
+### IEEE 9-bus (Anderson topology)
+
+A second test on a larger network — 9 buses, 3 generators, 6 loads:
 
 \### Newton-Raphson vs Gauss-Seidel
 
